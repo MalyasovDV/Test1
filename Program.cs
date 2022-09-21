@@ -1,25 +1,18 @@
 ﻿
 int[] SizeOfElements(string[] array)
 {   
-    int count = 0;
-    int[] sizeArray = new int[array.GetLength(0)];
-    for (int i = 0; i < array.GetLength(0); ++i)
+    int[] sizeArray = new int[array.Length];
+    for (int i = 0; i < array.Length; ++i)
     {
-        for(int symbol = 0; array[i][symbol] != '\0' ; ++symbol)
-        {
-            ++count;
-        }
-        sizeArray[i] = count;
-        count = 0;
+             sizeArray[i] = array[i].Length;
     }
-
     return sizeArray;
 }
 
 string[] ResultArray(int[] sizeArray, string[] array)
 {
     int count = 0;
-    for (int i = 0; i < sizeArray.GetLength(0); ++i)
+    for (int i = 0; i < sizeArray.Length; ++i)
     {
         if (sizeArray[i] <= 3)
             ++count;
@@ -28,7 +21,7 @@ string[] ResultArray(int[] sizeArray, string[] array)
     string[] result = new string[count];
     count = 0;
 
-    for (int i = 0; i < sizeArray.GetLength(0); ++i)
+    for (int i = 0; i < sizeArray.Length; ++i)
         if (sizeArray[i] <= 3)
             result[count++] = array[i];
     
@@ -37,7 +30,7 @@ string[] ResultArray(int[] sizeArray, string[] array)
 
 void PrintArray(string[] array)
 {
-    for (int i = 0; array[i] != null; ++i)
+    for (int i = 0; i < array.Length; ++i)
     {
         Console.WriteLine("Элемент {0}: {1}", i, array[i]);
     }
@@ -48,6 +41,7 @@ int n = int.Parse(Console.ReadLine());
 
 string[] array = new string[n];
 
+Console.WriteLine();
 
 Console.WriteLine("Введите элементы массива");
 
@@ -56,5 +50,7 @@ for (int i = 0; i < n; ++i)
     Console.WriteLine("Элемент {0}:", i);
     array[i] = Console.ReadLine();
 }
+
+Console.WriteLine();
 
 PrintArray(ResultArray(SizeOfElements(array), array));
