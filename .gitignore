@@ -1,2 +1,4 @@
-README.md
-FinalTaskDiagram.drawio
+.vscode/
+Homework.csproj
+bin/
+obj/
