@@ -42,7 +42,7 @@ int n = int.Parse(Console.ReadLine());
 string[] array = new string[n];
 string[] result;
 
-Console.WriteLine();
+Console.WriteLine(); 
 
 Console.WriteLine("Введите элементы массива");
 
